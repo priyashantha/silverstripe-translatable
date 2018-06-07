@@ -1574,6 +1574,7 @@ class Translatable extends DataExtension implements PermissionProvider {
 	function MetaTags(&$tags) {
         if (
             ($controller = Controller::curr())
+            && $controller instanceof ContentController
             && count($controller->getRequest()->getVars())
         ) {
             $tags .= '<link rel="canonical" href="'.$controller->AbsoluteLink().'" />';
